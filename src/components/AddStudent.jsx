@@ -16,7 +16,7 @@ const AddStudent = () => {
 
     const handleSubmit =(e) =>{
         e.preventDefault()
-        axios.post('https://mern-bookstore-backend-jo0k.onrender.com/student/register',{roll, username,password,grade})
+        axios.post('http://localhost:3001/student/register',{roll, username,password,grade})
         .then (res =>{
             if(res.data.registered){
                 navigate('/dashboard')

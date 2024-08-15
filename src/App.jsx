@@ -19,7 +19,7 @@ function App() {
 
   axios.defaults.withCredentials = true;
   useEffect(() =>{
-    axios.get('https://mern-bookstore-backend-jo0k.onrender.com/auth/verify')
+    axios.get('http://localhost:3001/auth/verify')
     .then(res =>{
       if(res.data.login){
         setRole(res.data.role)
@@ -32,12 +32,16 @@ function App() {
     }).catch(err => console.log(err))
   },[])
 
+  useEffect(() => {
+    console.log("the role is", role)
+  }, [role])
+
   return (
     <BrowserRouter>
       <Navbar role = {role} />
       <Routes>
         <Route path='/' element={<Home />}></Route>
-        <Route path='/books' element={<Books />}></Route>
+        <Route path='/books' element={<Books role={role} />}></Route>
         <Route path='/login' element={<Login setRoleVar= {setRole} />}></Route>
         <Route path='/dashboard' element={<Dashboard />}></Route>
         <Route path='/addstudent' element={<AddStudent />}></Route>

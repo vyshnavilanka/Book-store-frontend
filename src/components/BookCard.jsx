@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 const BookCard = ({book,role}) => {
     const {name, author,imageUrl}= book;
-    console.log("--------------"+book)
+    console.log("--------------",book, role)
   return (
     <div className ='book-card'>
         <img src={imageUrl} alt={name } className ='book-image' />
