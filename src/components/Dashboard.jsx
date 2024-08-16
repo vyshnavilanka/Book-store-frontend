@@ -6,7 +6,7 @@ const Dashboard = () => {
   const [admin,setAdmin] =useState(0)
   const [books,setBooks] = useState(0)
   useEffect(() => {
-    axios.get('http://localhost:3001/dashboard')
+    axios.get('https://mern-bookstore-backend-jo0k.onrender.com/dashboard')
     .then(res =>{
       if(res.data.ok){
         setStudents(res.data.student)
